@@ -1,5 +1,33 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import carRobotaxiImage from '../assets/img/icons/carrobotaxi.png'
+
+// SVG Icons
+const ShieldIcon = ({ className }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+  </svg>
+)
+
+const ZapIcon = ({ className }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
+  </svg>
+)
+
+const LeafIcon = ({ className }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+    <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+  </svg>
+)
+
+const ClockIcon = ({ className }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <circle cx="12" cy="12" r="10"></circle>
+    <polyline points="12 6 12 12 16 14"></polyline>
+  </svg>
+)
 
 const Robotaxi = () => {
   const [heroVisible, setHeroVisible] = useState(false)
@@ -38,22 +66,22 @@ const Robotaxi = () => {
 
   const features = [
     {
-      icon: '🛡️',
+      icon: ShieldIcon,
       title: 'Ultra Safe',
       description: 'Advanced sensors and AI ensure maximum safety with 360° awareness and instant reaction times.',
     },
     {
-      icon: '⚡',
+      icon: ZapIcon,
       title: 'Fast & Efficient',
       description: 'Optimized routes and smooth autonomous driving get you to your destination quickly.',
     },
     {
-      icon: '🌱',
+      icon: LeafIcon,
       title: 'Eco-Friendly',
       description: '100% electric vehicles reducing carbon emissions and promoting sustainable transportation.',
     },
     {
-      icon: '🕐',
+      icon: ClockIcon,
       title: '24/7 Available',
       description: 'Round-the-clock service ensuring reliable transportation whenever you need it.',
     },
@@ -146,13 +174,13 @@ const Robotaxi = () => {
               {/* Glowing background effect */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/30 via-purple-500/25 to-purple-600/20 blur-3xl" />
               
-              {/* Placeholder for car image */}
-              <div className="relative z-10 flex h-96 w-96 items-center justify-center rounded-3xl border border-white/10 bg-[#1A1A2E]/50 backdrop-blur">
-                <div className="text-center text-white/50">
-                  <div className="mb-4 text-6xl">🚗</div>
-                  <p className="text-sm">Robotaxi Vehicle</p>
-                  <p className="text-xs text-white/40">Placeholder</p>
-                </div>
+              {/* Car image */}
+              <div className="relative z-10 flex h-[500px] w-[600px] items-center justify-center rounded-3xl border border-white/10 bg-[#1A1A2E]/50 backdrop-blur overflow-hidden">
+                <img 
+                  src={carRobotaxiImage} 
+                  alt="Robotaxi Vehicle" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
@@ -190,8 +218,8 @@ const Robotaxi = () => {
                 key={feature.title}
                 className="rounded-[24px] border border-white/10 bg-[#16213E]/50 p-6 shadow-[0_30px_100px_rgba(0,0,0,0.5)] backdrop-blur transition hover:border-blue-500/30 hover:shadow-[0_30px_100px_rgba(59,130,246,0.2)]"
               >
-                <div className="inline-flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 text-3xl">
-                  {feature.icon}
+                <div className="inline-flex w-12 h-12 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 transition-transform duration-300 hover:scale-110">
+                  <feature.icon className="text-white" />
                 </div>
                 <h3 className="mt-6 text-xl font-semibold text-white">{feature.title}</h3>
                 <p className="mt-3 text-sm text-white/70">{feature.description}</p>
