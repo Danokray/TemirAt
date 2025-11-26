@@ -1,16 +1,6 @@
-@import "tailwindcss";
-
-@theme {
-  --color-brand-dark: #040713;
-  --color-brand-primary: #3b82f6;
-  --color-brand-secondary: #0ea5e9;
-  --color-brand-accent: #f97316;
-  
-  --font-family-display: 'Space Grotesk', sans-serif;
-  --font-family-body: 'Inter', system-ui, sans-serif;
-  
-  --shadow-glow: 0 10px 40px rgba(59, 130, 246, 0.35);
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
