@@ -5,7 +5,7 @@ import CallToActionSection from '../components/CallToActionSection.jsx'
 
 const Home = () => {
   return (
-    <div className="space-y-20">
+    <div className="w-full bg-brand-dark text-white">
       <HeroSection />
       <WhyChooseSection />
       <ProjectsSection />

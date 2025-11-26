@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import robotImage from '../assets/robots/placeholder.png'
+import robotImage from '../assets/home/robokolik.jpg'
 
 const Robokolik = () => {
   return (

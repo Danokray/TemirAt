@@ -1,18 +1,21 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import placeholderRobot from '../assets/robots/placeholder.png'
+import RobokolikImg from '../assets/home/robokolik.jpg'
+import RobotaxiImg from '../assets/home/robotaxi.jpg'
 
 const projects = [
   {
     title: 'Robokolik',
     description:
       'Interactive robotics platform empowering students to learn code, sensors, and autonomy hands-on.',
+    image: RobokolikImg,
     path: '/robokolik',
   },
   {
     title: 'Robotaxi',
     description:
       'Autonomous taxi fleet with Level 4 capability, built for dense urban corridors and safe mobility.',
+    image: RobotaxiImg,
     path: '/robotaxi',
   },
 ]
@@ -45,7 +48,7 @@ const ProjectsSection = () => {
     <section
       id="features"
       ref={sectionRef}
-      className="relative px-6 py-24"
+      className="relative px-6 py-24 bg-[rgba(15,27,44,0.8)]"
     >
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#050b18] via-[#071128] to-[#050b18]" />
 
@@ -54,13 +57,13 @@ const ProjectsSection = () => {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}
       >
-        <p className="text-sm uppercase tracking-[0.35em] text-brand-secondary">
-          Our Projects
-        </p>
-        <h2 className="mt-4 font-display text-4xl font-semibold text-white">
-          Discover how we are transforming education and transport
+        <h2 className="font-display text-4xl font-semibold text-white sm:text-5xl">
+          Our <span className="bg-gradient-to-r from-brand-secondary to-purple-500 bg-clip-text text-transparent">Projects</span>
         </h2>
-        <p className="mt-4 text-white/70">
+        <p className="mt-4 text-lg text-white/80">
+          Discover how we are transforming education and transport
+        </p>
+        <p className="mt-3 text-sm text-white/60">
           Each initiative combines TemirAt hardware, autonomy software, and partner collaboration to
           shape the next generation of robotics.
         </p>
@@ -78,7 +81,7 @@ const ProjectsSection = () => {
           >
             <div className="relative">
               <img
-                src={placeholderRobot}
+                src={project.image}
                 alt={project.title}
                 className="h-72 w-full object-cover"
               />

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import heroImg from '../assets/home/robot-hero.jpg'
 
 const stats = [
   { value: '2+', label: 'Active Projects', color: 'text-brand-secondary' },
@@ -72,7 +73,7 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Right side: Robot image placeholder */}
+        {/* Right side: Robot image */}
         <div
           className={`hidden flex-1 items-center justify-center transition-all duration-700 delay-150 lg:flex ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
@@ -82,13 +83,13 @@ const HeroSection = () => {
             {/* Glowing background effect */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-pink-500/30 via-purple-500/20 to-brand-secondary/20 blur-3xl" />
             
-            {/* Placeholder for robot image */}
-            <div className="relative z-10 flex h-96 w-96 items-center justify-center rounded-3xl border border-white/10 bg-white/5 backdrop-blur">
-              <div className="text-center text-white/50">
-                <div className="mb-4 text-6xl">🤖</div>
-                <p className="text-sm">Robot Image</p>
-                <p className="text-xs text-white/40">Placeholder</p>
-              </div>
+            {/* Robot image */}
+            <div className="relative z-10">
+              <img
+                src={heroImg}
+                alt="TemirAt Robotics Hero"
+                className="h-auto w-full max-w-lg object-contain"
+              />
             </div>
           </div>
         </div>

@@ -29,7 +29,7 @@ const CallToActionSection = () => {
     <section
       id="gallery"
       ref={sectionRef}
-      className="relative px-6 pb-24"
+      className="relative px-6 py-24 bg-[rgba(15,27,44,0.8)]"
     >
       <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-[#05102b] via-[#070f23] to-[#041026]" />
 
