@@ -1,87 +1,177 @@
-import { useEffect, useRef, useState } from 'react'
-import { NavLink } from 'react-router-dom'
-
-const footerLinks = [
-  { label: 'Home', path: '/' },
-  { label: 'Robokolik', path: '/robokolik' },
-  { label: 'Robotaxi', path: '/robotaxi' },
-  { label: 'Contact', path: '/contact' },
-]
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
-  const [isVisible, setIsVisible] = useState(false)
-  const footerRef = useRef(null)
-
-  useEffect(() => {
-    const footer = footerRef.current
-    if (!footer) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true)
-            observer.disconnect()
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
-
-    observer.observe(footer)
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <footer
-      ref={footerRef}
-      className="relative px-6 pb-12 pt-16"
-    >
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-transparent" />
-      <div
-        className={`mx-auto flex max-w-6xl flex-col gap-8 rounded-3xl border border-white/5 bg-white/5 px-6 py-8 text-white shadow-[0_25px_80px_rgba(5,8,20,0.65)] backdrop-blur-xl transition-all duration-700 md:flex-row md:items-center md:justify-between ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-        }`}
-      >
-        <p className="text-sm text-white/70">
-          © 2025 TemirAt Robotics. All rights reserved.
-        </p>
+    <footer className="t-footer">
+      <div className="t-container">
+        <div className="t-footer-grid">
+          {/* Logo + text */}
+          <div className="t-footer-section">
+            <h2 className="t-logo bg-gradient-to-r from-[#00AEEF] via-[#4A78F0] to-[#9B3DFF] bg-clip-text text-transparent">TemirAt.kz</h2>
+            <p className="t-desc">
+              Leading innovation in robotics and<br />
+              autonomous technology. Building the future,<br />
+              today.
+            </p>
+            <div className="t-socials">
+              <a href="#" aria-label="Facebook">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+              <a href="#" aria-label="Twitter">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                </svg>
+              </a>
+              <a href="#" aria-label="Instagram">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="#" aria-label="LinkedIn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect width="4" height="12" x="2" y="9"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+            </div>
+          </div>
 
-        <div className="flex flex-1 flex-col gap-5 md:items-end">
-          <nav className="flex flex-wrap items-center gap-4 text-sm text-white/70">
-            {footerLinks.map((link) => (
-              <NavLink
-                key={link.path}
-                to={link.path}
-                className={({ isActive }) =>
-                  `transition hover:text-white ${
-                    isActive ? 'text-brand-secondary' : ''
-                  }`
-                }
+          {/* Quick Links */}
+          <div className="t-footer-section">
+            <h3 className="t-title">Quick Links</h3>
+            <ul className="t-links">
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/robokolik">Robokolik</Link>
+              </li>
+              <li>
+                <Link to="/robotaxi">Robotaxi</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div className="t-footer-section">
+            <h3 className="t-title">Contact</h3>
+            <div className="t-contact-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="t-contact-icon"
               >
-                {link.label}
-              </NavLink>
-            ))}
-          </nav>
-          <div className="flex gap-3">
-            <a
-              href="https://www.linkedin.com"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-white/10 px-4 py-2 text-xs uppercase tracking-wide text-white/70 transition hover:border-brand-secondary hover:text-white"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://www.x.com"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-white/10 px-4 py-2 text-xs uppercase tracking-wide text-white/70 transition hover:border-brand-secondary hover:text-white"
-            >
-              X
-            </a>
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+              <span>info@temirat.kz</span>
+            </div>
+            <div className="t-contact-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="t-contact-icon"
+              >
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span>+7 (XXX) XXX-XX-XX</span>
+            </div>
+            <div className="t-contact-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="t-contact-icon"
+              >
+                <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Almaty, Kazakhstan</span>
+            </div>
+          </div>
+
+          {/* Newsletter */}
+          <div className="t-footer-section">
+            <h3 className="t-title">Newsletter</h3>
+            <p className="t-news-text">
+              Subscribe to get the latest updates on our projects.
+            </p>
+            <div className="t-newsletter">
+              <input type="email" placeholder="Your email" />
+              <button type="button">Subscribe</button>
+            </div>
           </div>
         </div>
+        <div className="t-divider"></div>
+        <p className="t-copy">© 2025 Temir At.kz. All rights reserved.</p>
       </div>
     </footer>
   )

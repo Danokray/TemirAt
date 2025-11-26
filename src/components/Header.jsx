@@ -24,9 +24,9 @@ const Header = () => {
   }, [])
 
   const linkClassName = ({ isActive }) =>
-    `group relative px-1 text-sm font-semibold tracking-wide transition after:absolute after:-bottom-2 after:left-1/2 after:h-0.5 after:w-6 after:-translate-x-1/2 after:rounded-full after:bg-gradient-to-r after:from-brand-secondary after:to-brand-primary after:transition after:content-[''] ${
+    `group relative px-1 text-sm font-semibold tracking-wide transition after:absolute after:-bottom-2 after:left-1/2 after:h-0.5 after:w-6 after:-translate-x-1/2 after:rounded-full after:bg-gradient-to-r after:from-[#00AEEF] after:via-[#4A78F0] after:to-[#9B3DFF] after:transition after:content-[''] ${
       isActive
-        ? 'text-brand-secondary after:opacity-100'
+        ? 'text-[#00AEEF] after:opacity-100'
         : 'text-white/70 hover:text-white after:opacity-0 group-hover:after:opacity-40'
     }`
 
@@ -40,9 +40,9 @@ const Header = () => {
         <Link
           to="/"
           onClick={() => setIsMenuOpen(false)}
-          className="select-none text-lg font-semibold tracking-tight text-white transition hover:text-brand-secondary"
+          className="select-none text-lg font-semibold tracking-tight text-white transition"
         >
-          <span className="bg-gradient-to-r from-brand-secondary to-brand-accent bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#00AEEF] via-[#4A78F0] to-[#9B3DFF] bg-clip-text text-transparent">
             TemirAt.kz
           </span>
         </Link>
@@ -61,7 +61,7 @@ const Header = () => {
           <Link
             to="/contact"
             onClick={() => setIsMenuOpen(false)}
-            className="rounded-full bg-gradient-to-r from-brand-secondary to-brand-primary px-5 py-2 text-sm font-semibold text-white shadow-glow transition hover:scale-105"
+            className="rounded-full bg-gradient-to-r from-[#00AEEF] via-[#4A78F0] to-[#9B3DFF] px-5 py-2 text-sm font-semibold text-white shadow-glow transition hover:scale-105"
           >
             Get Started
           </Link>
@@ -106,7 +106,7 @@ const Header = () => {
               to={link.path}
               className={({ isActive }) =>
                 `rounded-xl px-4 py-3 text-base font-semibold transition hover:bg-white/5 ${
-                  isActive ? 'text-brand-secondary' : 'text-white'
+                  isActive ? 'text-[#00AEEF]' : 'text-white'
                 }`
               }
               onClick={() => setIsMenuOpen(false)}
@@ -117,7 +117,7 @@ const Header = () => {
           <Link
             to="/contact"
             onClick={() => setIsMenuOpen(false)}
-            className="mt-2 rounded-xl bg-gradient-to-r from-brand-secondary to-brand-primary px-4 py-3 text-center text-base font-semibold text-white shadow-glow"
+            className="mt-2 rounded-xl bg-gradient-to-r from-[#00AEEF] via-[#4A78F0] to-[#9B3DFF] px-4 py-3 text-center text-base font-semibold text-white shadow-glow"
           >
             Get Started
           </Link>
