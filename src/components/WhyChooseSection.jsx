@@ -111,7 +111,7 @@ const WhyChooseSection = () => {
     <section
       id="about"
       ref={ref}
-      className="relative px-6 py-24 bg-[rgba(15,27,44,0.8)]"
+      className="relative px-6 py-24"
     >
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#050b18] via-[#050b18] to-[#040713]" />
       <div

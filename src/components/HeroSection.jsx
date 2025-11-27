@@ -82,13 +82,13 @@ const HeroSection = () => {
           <div className="relative">
             {/* Glowing background effect */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-pink-500/30 via-purple-500/20 to-brand-secondary/20 blur-3xl" />
-            
-            {/* Robot image */}
-            <div className="relative z-10">
+
+            {/* Robot image card (similar style to Robotaxi) */}
+            <div className="relative z-10 flex h-[420px] w-[520px] items-center justify-center rounded-3xl border border-white/10 bg-white/5 backdrop-blur overflow-hidden">
               <img
                 src={heroImg}
                 alt="TemirAt Robotics Hero"
-                className="h-auto w-full max-w-lg object-contain"
+                className="h-full w-full object-cover"
               />
             </div>
           </div>

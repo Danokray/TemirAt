@@ -48,7 +48,7 @@ const ProjectsSection = () => {
     <section
       id="features"
       ref={sectionRef}
-      className="relative px-6 py-24 bg-[rgba(15,27,44,0.8)]"
+      className="relative px-6 py-24"
     >
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#050b18] via-[#071128] to-[#050b18]" />
 
